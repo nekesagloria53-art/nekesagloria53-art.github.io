@@ -44,7 +44,7 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: pink;
     text-decoration: none;
     margin: 0 20px;
     font-weight: 600;
@@ -74,4 +74,5 @@ h2 {
     border-left: 5px solid #2563eb;
     padding-left: 12px;
 }
+
 
