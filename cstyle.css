@@ -1,100 +1,24 @@
-/* ================= IMPROVED GLOBAL TRANSITIONS ================= */
+:root {
+    --primary: #006400;       /* Deep Green */
+    --secondary: #b30000;     /* Rich Red */
+    --accent: #ffcc00;        /* Gold Highlight */
+    --text-dark: #2d3436;
+    --text-light: #ffffff;
+    --bg-light: #f4f7f6;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    /* This ensures all property changes feel smooth by default */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ================= THE "GLASS" HEADER ================= */
-header {
-    background: linear-gradient(135deg, rgba(179, 0, 0, 0.9), rgba(0, 100, 0, 0.9));
-    backdrop-filter: blur(10px); /* Modern blur effect */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* ================= SMART NAVIGATION ================= */
-nav a {
-    position: relative;
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 500;
-    padding-bottom: 5px;
-}
-
-/* Animated Underline Effect */
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #ffcccc;
-    transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* ================= BUTTON & SOCIAL REFINEMENT ================= */
-.social a, button {
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social a:hover, button:hover {
-    background: #b30000;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(179, 0, 0, 0.3);
-}
-
-/* Active "Click" effect */
-.social a:active, button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-/* ================= IMAGE & CARD HOVERS ================= */
-.card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    /* "Springy" hover effect */
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* ================= INPUT FOCUS STATES ================= */
-form input, form textarea {
-    border: 2px solid transparent;
-    background: #f9f9f9;
-    transition: all 0.3s ease;
-}
-
-form input:focus, form textarea:focus {
-    outline: none;
-    background: white;
-    border-color: #006400;
-    box-shadow: 0 0 8px rgba(0, 100, 0, 0.2);
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
