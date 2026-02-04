@@ -1,196 +1,36 @@
-/* ================= THEME VARIABLES ================= */
-:root {
-    --primary: #006400;    /* Dark Green */
-    --secondary: #b30000;  /* Dark Red */
-    --accent: #ffcc00;
-    --white: #ffffff;
-    --gray: #f4f4f4;
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* ================= RESET & GENERAL ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-html { scroll-behavior: smooth; }
-
-body { color: #333; line-height: 1.6; background-color: var(--white); }
-
-.section { padding: 80px 10%; text-align: center; }
-
-.white { background: var(--white); }
-.green { background: #eef7ee; }
-.red { background: #fff5f5; }
-
-/* ================= HEADER ================= */
-header {
-    background: linear-gradient(135deg, var(--primary), #004d00);
-    color: white;
-    padding: 30px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-header h1 { letter-spacing: 1px; margin-bottom: 5px; }
-
-nav { margin-top: 15px; }
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 600;
-    transition: var(--transition);
-    font-size: 0.95rem;
-}
-
-nav a:hover { color: var(--accent); }
-
-/* ================= HOME (MIDDLE IMAGE) ================= */
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.profile-img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 6px solid var(--white);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    margin-bottom: 25px;
-    transition: var(--transition);
-}
-
-.profile-img:hover { transform: scale(1.05); }
-
-.home-text h2 {
-    font-size: 2.5rem;
-    color: var(--primary);
-    line-height: 1.2;
-    margin-bottom: 15px;
-}
-
-/* ================= EDUCATION TABLE ================= */
-.table-container {
-    overflow-x: auto; /* Responsive for mobile */
-    margin-top: 30px;
-}
-
-table {
+/* ================= MOVING TEXT ANIMATION ================= */
+.moving-text-container {
     width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-th {
+    overflow: hidden; /* Hides the text when it goes off-screen */
     background: var(--primary);
-    color: white;
-    padding: 18px;
-    text-align: left;
+    color: var(--white);
+    padding: 10px 0;
+    margin: 20px 0;
+    white-space: nowrap;
+    position: relative;
 }
 
-td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
-
-tr:hover { background-color: #f9f9f9; }
-
-/* ================= SERVICE CARDS ================= */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: var(--transition);
-    border-top: 4px solid var(--secondary);
-}
-
-.card:hover { transform: translateY(-10px); }
-
-.card-img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-/* ================= CONTACT & FORM ================= */
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    text-align: left;
-}
-
-.social a {
+.moving-words {
     display: inline-block;
-    margin: 15px 10px 0 0;
-    padding: 10px 20px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.social a:hover { background: var(--secondary); transform: translateY(-3px); }
-
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline-color: var(--primary);
-}
-
-form textarea { height: 120px; }
-
-button {
-    background: var(--primary);
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding-left: 100%; /* Starts the text off-side */
+    animation: marquee 15s linear infinite;
     font-weight: bold;
-    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-button:hover { background: var(--secondary); }
-
-/* ================= FOOTER ================= */
-footer {
-    background: #1a1a1a;
-    color: white;
-    padding: 25px;
-    font-size: 0.9rem;
+.moving-words span {
+    margin-right: 50px; /* Space between words */
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
-@media (max-width: 768px) {
-    .content-grid { grid-template-columns: 1fr; }
-    .section { padding: 60px 5%; }
-    header h1 { font-size: 1.5rem; }
+/* The Animation Logic */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
+
+/* Pause the movement when the user hovers over it */
+.moving-text-container:hover .moving-words {
+    animation-play-state: paused;
+}
+
