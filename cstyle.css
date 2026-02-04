@@ -30,7 +30,7 @@ header {
 
 header h1 {
     letter-spacing: 2px;
-    animation: slideDown 1s ease;
+    animation: slideleft 1s ease;
 }
 
 nav {
@@ -42,7 +42,7 @@ nav a {
     text-decoration: none;
     margin: 0 12px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 nav a:hover {
@@ -278,4 +278,5 @@ footer {
 }
 
   
+
 
